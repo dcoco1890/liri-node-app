@@ -4,6 +4,12 @@ cli tool to search for concerts, movie information, and songs. Uses API's from S
 ## Concert search example
 ![](concert_this.png)
 
+## Movie search
+![](images/movie.png)
+
+## Spotify
+![](images/spotify.png)
+
 ## Search appended to log
 ![](images/log01.png)
 ![](log02.png)
