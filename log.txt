@@ -1,0 +1,215 @@
+
+----------------------------
+Action: concert-this
+Term: modest mouse
+
+Pepsi Center
+Denver
+CO
+09/23/2019
+
+Sprint Center
+Kansas City
+MO
+09/24/2019
+
+Enterprise Center
+Saint Louis
+MO
+09/25/2019
+
+United Center
+Chicago
+IL
+09/27/2019
+
+Target Center
+Minneapolis
+MN
+09/28/2019
+
+Quicken Loans Arena
+Cleveland
+OH
+09/30/2019
+
+Bridgestone Arena
+Nashville
+TN
+10/01/2019
+
+Nationwide Arena
+Columbus
+OH
+10/02/2019
+
+Fiserv Forum
+Milwaukee
+WI
+10/04/2019
+
+Little Caesars Arena
+Detroit
+MI
+10/05/2019
+
+PPG Paints Arena
+Pittsburgh
+PA
+10/07/2019
+
+Van Andel Arena
+Grand Rapids
+MI
+10/08/2019
+
+Scotiabank Arena
+Toronto
+
+10/09/2019
+
+TD Garden
+Boston
+MA
+10/11/2019
+
+The Anthem
+Washington
+DC
+10/12/2019
+
+Wells Fargo Center
+Philadelphia
+PA
+10/14/2019
+
+Barclays Center
+Brooklyn
+NY
+10/15/2019
+
+BB&T Center
+Sunrise
+FL
+11/05/2019
+
+Amway Center
+Orlando
+FL
+11/06/2019
+
+PNC Arena
+Raleigh
+NC
+11/08/2019
+
+State Farm Arena
+Atlanta
+GA
+11/09/2019
+
+Toyota Center
+Houston
+TX
+11/12/2019
+
+Frank C Erwin Special Events Center
+Austin
+TX
+11/13/2019
+
+Dickies Arena
+Fort Worth
+TX
+11/14/2019
+
+Talking Stick Resort Arena
+Phoenix
+AZ
+11/16/2019
+
+Pechanga Arena San Diego
+San Diego
+CA
+11/17/2019
+
+The Forum
+Los Angeles
+CA
+11/19/2019
+
+Chase Center
+San Francisco
+CA
+11/20/2019
+
+Moda Center
+Portland
+OR
+11/22/2019
+
+Tacoma Dome
+Tacoma
+WA
+11/23/2019
+
+Rogers Arena
+Vancouver
+
+11/24/2019
+
+
+----------------------------
+Action: spotify-this-song
+Term: 
+
+Lil Wayne
+Scared of the Dark (feat. XXXTENTACION)
+Scared of the Dark (feat. XXXTENTACION)
+null
+
+Harry Styles
+Scared of the Dark (feat. XXXTENTACION)
+Sign of the Times
+https://p.scdn.co/mp3-preview/af237206f611b722f48620ece049aff3b8650e77?cid=55fd7bdacd8e4afaa8641ccb75c457e7
+
+Ace of Base
+Scared of the Dark (feat. XXXTENTACION)
+The Sign
+https://p.scdn.co/mp3-preview/4c463359f67dd3546db7294d236dd0ae991882ff?cid=55fd7bdacd8e4afaa8641ccb75c457e7
+
+Ty Dolla $ign
+Scared of the Dark (feat. XXXTENTACION)
+Or Nah (feat. The Weeknd, Wiz Khalifa & DJ Mustard) - Remix
+https://p.scdn.co/mp3-preview/70f126c139847335bc03c756c55b80c99892268e?cid=55fd7bdacd8e4afaa8641ccb75c457e7
+
+Jeremih
+Scared of the Dark (feat. XXXTENTACION)
+Impatient
+null
+
+Dreamville
+Scared of the Dark (feat. XXXTENTACION)
+Got Me (with Ari Lennox & Omen feat. Ty Dolla $ign & Dreezy)
+null
+
+Harry Styles
+Scared of the Dark (feat. XXXTENTACION)
+Sign of the Times
+https://p.scdn.co/mp3-preview/9801b9239ad1b833f1317574ee55b9d7b8426ff1?cid=55fd7bdacd8e4afaa8641ccb75c457e7
+
+The Chainsmokers
+Scared of the Dark (feat. XXXTENTACION)
+Do You Mean (with Ty Dolla $ign & bülow)
+https://p.scdn.co/mp3-preview/cd53826cc7865a498b2c3615a396e25297bbc849?cid=55fd7bdacd8e4afaa8641ccb75c457e7
+
+Jeremih
+Scared of the Dark (feat. XXXTENTACION)
+The Light
+null
+
+The Chainsmokers
+Scared of the Dark (feat. XXXTENTACION)
+Do You Mean (with Ty Dolla $ign & bülow)
+https://p.scdn.co/mp3-preview/cd53826cc7865a498b2c3615a396e25297bbc849?cid=55fd7bdacd8e4afaa8641ccb75c457e7
+

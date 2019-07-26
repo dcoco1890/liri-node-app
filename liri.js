@@ -19,7 +19,7 @@ let usersText = process.argv.slice(3).join(" ");
 function getStarted(todo, args) {
 
     // sends the action and a newline to the LOG text
-    actionAppend(todo);
+    actionAppend(todo, args);
 
     switch (todo) {
         case 'concert-this':
@@ -39,7 +39,8 @@ function getStarted(todo, args) {
 
 function bandTown(input) {
 
-    axios.get(`https://rest.bandsintown.com/artists/${input}/events?app_id=codingbootcamp`).then(function(response) {
+    var URL = `https://rest.bandsintown.com/artists/${input}/events?app_id=codingbootcamp`;
+    axios.get(URL).then(function(response) {
 
         // grabs length of the response
         // array to create a loop
@@ -58,14 +59,16 @@ function bandTown(input) {
             console.log(BREAK);
             console.log(`${arr[i].venue.name}\nThis show is in ${arr[i].venue.city}, ${arr[i].venue.region}\nDATE: ${formatDate} `);
             console.log(BREAK);
+            var arrrt = [arr[i].venue.name, arr[i].venue.city, arr[i].venue.region, formatDate];
+            fileAppender(arrrt);
         }
     }).catch(function(error) {
-
+        console.log('error :', error);
         // this ensures that if the artist is not
         // found it will display artist not found
-        console.log(`\n${BREAK}`);
-        console.log(error.response.data.errorMessage);
-        console.log(`${BREAK}\n`);
+        // console.log(`\n${BREAK}`);
+        // console.log(error.response.data.errorMessage);
+        // console.log(`${BREAK}\n`);
     });
 };
 
@@ -81,9 +84,11 @@ function spotty(input) {
         if (err) {
             return console.log('Error occurred: ' + err);
         }
-        for (var i = 0; i < 20; i++) {
+        for (var i = 0; i < 10; i++) {
             console.log('\n');
             console.log(`Artist: ${data.tracks.items[i].artists[0].name}\nAlbum: ${data.tracks.items[0].name}\nSong: ${data.tracks.items[i].name}\nPreview URL: ${data.tracks.items[i].preview_url}`);
+            var arr = [data.tracks.items[i].artists[0].name, data.tracks.items[0].name, data.tracks.items[i].name, data.tracks.items[i].preview_url];
+            fileAppender(arr);
         }
 
     });
@@ -102,8 +107,15 @@ function movie(input) {
             console.log(`\n`);
             console.log(`Title: ${response.data.Title}\n${response.data.Year}\nRating: ${response.data.imdbRating}\nRT Rating:${JSON.stringify(response.data.Ratings[1])}\nCountry: ${response.data.Country}\nLanguage: ${response.data.Language}\n\nPlot: ${response.data.Plot}\nActors: ${response.data.Actors}`);
             console.log(`\n`);
+
+            var a = JSON.stringify(response.data.Ratings[1]);
+            var arr = [response.data.Title, response.data.Year, response.data.imdbRating, a, response.data.Country, response.data.Language, response.data.Plot, response.data.Actors];
+            fileAppender(arr);
+
         }
-    );
+    ).catch(function(error) {
+        console.log(error);
+    });
 };
 
 function readText(input) {
@@ -136,19 +148,27 @@ function dateCreate(date) {
     return nn;
 };
 
+
+// this function appends the returned data to the log file 
 function fileAppender(data) {
 
     var log = `log.txt`;
+    var text = "";
+    for (var i = 0; i < data.length; i++) {
+        text += `${data[i]}\n`;
+    }
 
-    fs.appendFile(log, data, (err) => {
+    fs.appendFile(log, `${text}\n`, (err) => {
         if (err) throw err;
-        console.log('The "data to append" was appended to file!');
+        // console.log('The "data to append" was appended to file!');
     });
 };
 
-function actionAppend(action) {
+//this function appends the term the user entered into the log file
+function actionAppend(action, args) {
+
     var log = `log.txt`;
-    action = action + " \n\n";
+    action = `\n${BREAK}\nAction: ${action}\nTerm: ${args}\n\n`;
 
     fs.appendFile(log, action, (err) => {
         if (err) throw err;
