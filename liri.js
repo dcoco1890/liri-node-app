@@ -5,18 +5,22 @@ var Spotify = require('node-spotify-api');
 const axios = require('axios');
 var moment = require('moment');
 const fs = require('fs');
+
+
 const format = "YYYY/MM/DD";
-var regex = /[^T]*/;
+const regex = /[^T]*/;
 const BREAK = `----------------------------`;
 
 var spotify = new Spotify(keys.spotify);
-
-// var inputString = process.argv;
 
 let command = process.argv[2];
 let usersText = process.argv.slice(3).join(" ");
 
 function getStarted(todo, args) {
+
+    // sends the action and a newline to the LOG text
+    actionAppend(todo);
+
     switch (todo) {
         case 'concert-this':
             bandTown(args);
@@ -34,28 +38,31 @@ function getStarted(todo, args) {
 };
 
 function bandTown(input) {
-    axios.get(`https://rest.bandsintown.com/artists/${input}/events?app_id=codingbootcamp`).then(
-        function(response) {
 
-            // grabs length of the response array to create a loop
-            var arr = response.data;
-            var arrLength = arr.length;
+    axios.get(`https://rest.bandsintown.com/artists/${input}/events?app_id=codingbootcamp`).then(function(response) {
 
-            for (var i = 0; i < arrLength; i++) {
+        // grabs length of the response
+        // array to create a loop
+        var arr = response.data;
+        var arrLength = arr.length;
 
-                // console.log(response.data.config);
-                // grabbing the date time and sending it to the formatter
-                var y = response.data[i].datetime;
-                var formatDate = dateCreate(y);
+        for (var i = 0; i < arrLength; i++) {
 
-                // this is the meat of it. Data formatted to fit your screen.
-                console.log(`\n`);
-                console.log(BREAK);
-                console.log(`${arr[i].venue.name}\nThis show is in ${arr[i].venue.city}, ${arr[i].venue.region}\nDATE: ${formatDate} `);
-                console.log(BREAK);
-            }
-        }).catch(function(error) {
-        //this ensures that if the artist is not found, it will display artist not found
+            // console.log(response.data.config);
+            // grabbing the date time and sending it to the formatter
+            var y = response.data[i].datetime;
+            var formatDate = dateCreate(y);
+
+            // this is the meat of it. Data formatted to fit your screen.
+            console.log(`\n`);
+            console.log(BREAK);
+            console.log(`${arr[i].venue.name}\nThis show is in ${arr[i].venue.city}, ${arr[i].venue.region}\nDATE: ${formatDate} `);
+            console.log(BREAK);
+        }
+    }).catch(function(error) {
+
+        // this ensures that if the artist is not
+        // found it will display artist not found
         console.log(`\n${BREAK}`);
         console.log(error.response.data.errorMessage);
         console.log(`${BREAK}\n`);
@@ -63,7 +70,14 @@ function bandTown(input) {
 };
 
 function spotty(input) {
-    spotify.search({ type: 'track', query: input }, function(err, data) {
+
+    var x = input;
+
+    // would not work with triple equals, but basically if the input
+    // is blank, it will search for the sign by ace of base
+    if (x == "") x = "the sign";
+
+    spotify.search({ type: 'track', query: x }, function(err, data) {
         if (err) {
             return console.log('Error occurred: ' + err);
         }
@@ -76,8 +90,9 @@ function spotty(input) {
 };
 
 function movie(input) {
-    // might be a better way, but i set the default value and change it if the user
-    // entered something for input.
+
+    // might be a better way, but i set the default value 
+    // and change it if the user entered something for input.
     var search = "mr nobody";
     if (input) search = input;
 
@@ -98,12 +113,13 @@ function readText(input) {
         if (err) throw err;
         console.log('OK: ' + filename);
 
-        // little confusing, but the data returned was one long sring. So I split the string on the spaces
+        // little confusing, but the data returned was one long string. So I split the string on the spaces
         // then I sliced off the first element and joined the rest with spaces, and passed it back to the started
         // method.
         var x = data.split(" ");
         var z = x.slice(1).join(" ");
 
+        //calling the "main" function with our new "command" and "usersText"
         getStarted(x[0], z);
 
     });
@@ -120,18 +136,26 @@ function dateCreate(date) {
     return nn;
 };
 
+function fileAppender(data) {
+
+    var log = `log.txt`;
+
+    fs.appendFile(log, data, (err) => {
+        if (err) throw err;
+        console.log('The "data to append" was appended to file!');
+    });
+};
+
+function actionAppend(action) {
+    var log = `log.txt`;
+    action = action + " \n\n";
+
+    fs.appendFile(log, action, (err) => {
+        if (err) throw err;
+
+    });
+}
+
 
 //main
 getStarted(command, usersText);
-
-
-
-
-
-
-
-
-// fs.appendFile('random.txt', 'data to append', (err) => {
-//     if (err) throw err;
-//     console.log('The "data to append" was appended to file!');
-//   });
