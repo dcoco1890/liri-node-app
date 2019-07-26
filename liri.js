@@ -27,7 +27,7 @@ function getStarted(todo, args) {
         case 'movie-this':
             movie(args);
             break;
-        case 'do-what-is-says':
+        case 'do-what-it-says':
             readText(args);
             break;
     }
@@ -93,6 +93,20 @@ function movie(input) {
 
 function readText(input) {
 
+    var filename = "random.txt";
+    fs.readFile(filename, 'utf8', function(err, data) {
+        if (err) throw err;
+        console.log('OK: ' + filename);
+
+        // little confusing, but the data returned was one long sring. So I split the string on the spaces
+        // then I sliced off the first element and joined the rest with spaces, and passed it back to the started
+        // method.
+        var x = data.split(" ");
+        var z = x.slice(1).join(" ");
+
+        getStarted(x[0], z);
+
+    });
 };
 
 
